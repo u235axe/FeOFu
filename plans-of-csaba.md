@@ -12,3 +12,37 @@
 
 # TODO
 use cases
+
+# Things I know
+
+## Compilers I've checked
+- jhc
+- uhc
+- lhc
+- ghc
+- ddc
+
+## EDSLs I'm aware of
+- accelerate
+- repa
+- gpipe
+- obsidian
+
+
+## Languages I'm aware of
+- sixten
+- pony
+- nova
+- fcl (post obsidian)
+- futhark
+- data parallel haskell
+
+# Preferred technologies
+- llvm
+- vulkan
+
+# Preferred methods
+- constructive mathematics (formal methods)
+- category theory
+- information theory
+- type theory
