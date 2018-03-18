@@ -1,11 +1,11 @@
-#Problems, limitations of existing languages
+# Problems, limitations of existing languages
 
-##C++ (including modern standards)
-
-
-
-##Haskell
+## C++ (including modern standards)
 
 
 
-##Other
+## Haskell
+
+
+
+## Other
