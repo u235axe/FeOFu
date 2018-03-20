@@ -30,7 +30,7 @@ Some of the limitations in tooling that I've come across:
 
 ## Missing pieces of technologies
 
-These are missing pieces of technologies I have collected that would allow me to reach programming nirvana in relation to functional style coding embedded in a single-source, graphics/compute capable (GP)GPU language embedded preferably into C++.
+I believe C++ is not beyond _redemption_ and adding/fixing/deprecating features can lead to a substantially larger audience and impact than cooking a n entirely new language. I would like to think, C++ has not reached a breaking point (yet). These are missing pieces of technologies I have collected that seems like programming nirvana in relation to functional style coding embedded in a single-source, graphics/compute capable (GP)GPU language, usable in many domains of programming, embedded preferably into C++.
 
 ### EXI en/decoder
 
@@ -112,6 +112,9 @@ Looking at the foundations of most buildsystems (plus Meson, plus Buck, plus GNU
 
 - Language aware
 	- Whatever language I compile, it must fit like a glove
+	- Language dialects (GNU C++, MS C++, ISO C++, CUDA C++, etc.)
+- Tool aware
+	- Batch mode if tool supports it
 - Extensible
 	- The very first languages must be implemented using the same _extension API_ others are meant to use
 - Fast
@@ -127,8 +130,13 @@ Looking at the foundations of most buildsystems (plus Meson, plus Buck, plus GNU
 - Tooling
 	- IDE infers as much from the source code as possible
 		- Language version
+		- Language dialect/extension
 		- Dependencies
 			- If I include a Boost header for eg., it should add a renference to it.
+
+#### Open questions
+- Package manager be a part, or just simply fit like a glove?
+	- Mix and matching the two that were not created to be aware of each other is tough. Requires a very good extension API to pull off two-way interoperability
 
 ### GUI
 
@@ -169,34 +177,52 @@ A proper cross-plat GUI library
 
 ### IDE
 
-	• IDE
-		○ Natív/managed?
-	• Build system
-		○ Build server
-		○ Deklaratív
-			§ Környezet
-			§ Ki-/bemenet
-			§ Melléktermék
-		○ Batch feladat támogatás
-		○ Nyelv ismeret
-			§ Nyelvi sztenderd / nyelvi feature
-			§ Kiterjesztése
-		○ Csomagkezelés?
-	• STL2
-		○ Iostream
-			§ Nyers I/O eszköz
-			§ Formázás, lokalizáció viszonya?
-			§ Dátum, idő, időtartam?
-		○ COM
-			§ Könyvtár típusok + modul?
-		○ Fordító
-			§ Build system?
-			§ Kapcsolók vs. Fordítási modell?
-	• C++
-		○ Reflection
-			§ AST
-	• (GP)GPU
-		○ Single-source graphics
-			§ Compute interop
-			§ Közös matek primitívek
-		
+A nice use case for most of the above.
+
+#### Needed features
+
+- No Web!
+- Native!
+- Many things others already know
+	- Extension manager
+	- Powerful linting API
+
+#### Would be awesome
+
+-  Mobile-friendly
+	- Continuum (existing, the coming Andromeda device), Samsung Dex, etc. capable, a mobile should be able to handle most development tasks
+
+### C++ reflection on statements
+
+Saving some time on my part and not paraphrasing something I already wrote down, here's an excerpt from an email to Andrew Sutton:
+
+> The effort put into the abstraction of GPGPU and massively parallel computing has gained major traction over the past 2-3 years. Implementations however are usually compiler forks which rise and fall as research goes on. However, if there were a way to capture some subset of the C++ AST, specifically the GPU-compatible part of it, often referred to as „static C++” (no virtuals, no RTTI, no exceptions, etc.), one could implement CUDA-like single-source GPGPU compilers via reflection as a library instead of a separate compiler. Not only would such libraries be portable across compilers (Clang/GCC/MSVC), but it would also be able to evolve independently from the compilers. In my view, this would significantly reduce the barrier of incorporating GPGPU into C++, as giving any kind of language support could be based on throrough library usage. If one interface proves useful, STL implementations could ship the meta-library and hooking it into whatever API they see fit (should the standard allow so.)
+>
+> If there were a standardized interface to the AST (the compiler would still be free to have any internal representation (if any) as it sees fit), and one would have a constexpr friendly implementation of LLVM per say, one could write CUDA and SYCL-like compilers and distribute them as header-only libraries. The library would generate the device intermediate (SPIR-V for Vulkan, DXIL for DirectX 12, etc.) and the accompanying host-side code the same way as they do today. I know, that making LLVM work in a constexpr context is a serious effort, but if one could make it work inside a browser, making it work inside the compiler itself isn’t science fiction. (Does require a lot of constexpr work, starting with constexpr allocator support.)
+
+#### Needed features
+
+- Standard representation of the C++ AST
+- Constexpr-compatible LLVM generator
+- Constexpr-compatible LLVM back-ends
+	- Initially GPU IR back-ends
+
+#### Would be awesome
+
+- Multiple front-ends
+	- ISO C++17 (Parallel STL)
+	- SYCL 2.2
+- Reflection/Metaclass generated API
+	- Import a metaclass library that takes the XML representation of all the Vulkan API functions (available online), and have the API bindings compile "on-the-fly" via the reflection API and have it generate metaclasses (handle vs. class/struct) and API functions.
+- IntelliSense support
+
+### Khronos standards
+
+The following contributions to graphics/compute related APIs
+
+#### Would be awesome
+
+- SYCL extension to enable single-source graphics
+	- Hook assembling a graphics pipeline into the command_group abstraction
+	- Results in trivial compute interoperability
+	- Allows for the very same math primitives and syntax to be used for both graphics and compute
