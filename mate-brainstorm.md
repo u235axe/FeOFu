@@ -2,6 +2,8 @@
 
 It is undeniable that C++ has gotten a lot better lately from a usability and expressivity persepective. Not being a major user of any of the functional languages, having only read dozens of tutorials, blog posts and having fiddled with F# to some extent, I am still nto convinced, that a **functional language** would solve all of my day-to-day problems. **Functional style** programming however immediately empowers my day-to-day productivity, it's mostly the tools that limit my capabilities in this regard.
 
+## Current limitations
+
 Some of the limitations in tooling that I've come across:
 
 - Single-source GPGPU compilers choke on many functional-style constructs expressed in C++
@@ -26,18 +28,147 @@ Some of the limitations in tooling that I've come across:
 	- Not making it a library/DSL of a language, one has to deal with data binding and language interop in general, but that is proven to be solvable.
 	- No web technologies! For crying out loud, the foundations of Visual Studio Code are something to laugh about. Having to dynamically interpret and JIT stuff that are all known at compile time (dynamically interpret static layout) is a joke and a huge waste of resources.
 
-	• EXI en-/dekóder
-		○ Constexpr képes
-		○ XML/JSON compat
-		○ Szigorú séma mód
-	• SVG renderer
-		○ SVG-ből árnyaló
-		○ OpenVG?
-	• GUI
-		○ XAML
-		○ X-plat
-		○ Metaclass generált
-		○ Natív/managed?
+## Missing pieces of technologies
+
+These are missing pieces of technologies I have collected that would allow me to reach programming nirvana in relation to functional style coding embedded in a single-source, graphics/compute capable (GP)GPU language embedded preferably into C++.
+
+### EXI en/decoder
+
+I have mentioned JSON and XML as representations of tree-like data structures. [EXI](http://www.w3.org/TR/exi/) is just as much of a W3C recommendation as JSON or XML itself and it can be used to compress both JSON and XML. It is very much like a serialization format of both, a binary representation that can be guided by schema information. Because JSON and XML (apart from 0.0001% corener cases) are interchangeable, EXI compressed data can in theory be deserialized into both DSLs. Beneficial properties of EXI:
+
+- Small size, even smaller than JSON (it's binary afterall)
+- Extremely fast to parse (especially when schema guided)
+
+It is ideal when one needs to store or send data over the wire, especially when the data format is agreed upon by both ends. (XAML, plotting XAML modules, LambdaXML, etc.) To be honest, I'm shocked that so few (practically none) XML libraries implement it.
+
+_(You could even think of it as a more standard way Boost.Serialize, one fit to be part of the ISO C++ standard. As far as I thought of it, it's fit for the task. EXI supports partial schema guiding, some types to be known ahead of time (STL types?) others to be unknown at the time of deserializing.)_
+
+#### Needed features
+
+- Constexpr képes
+	- This (along with being able to load files at compile time) would abolish the need for configuration headers with macro definitions triggering all kinds of weird macro voodoo. Separate, conforming JSON/XML files could be #include-ed (or loaded via constexpr functions), be stored as a variable and be traversed as a compile-time data structure, and be fed to TMP or constexpr_if blocks, or simply be used in a constexpr context. The proof of concept compile-time JSON parser is on [Github](https://github.com/lefticus/constexpr_all_the_things)/[Youtube](https://youtu.be/PJwd4JLYJJY).
+- XML/JSON compat
+- Shema guided
+	- Fully
+	- Partially
+
+#### Would be awesome
+
+- For current ROX experts, existing XML DSLs can enhance its usage
+	- XML comprehension (xml["XQueryLiteral"])
+	- Trivial transformations (xml.transform("XSLT_literal"))
+	- Evaluated at compile-time, or just optimized at compile-time, much like you would want regular expressions to no be interpreted by a runtime mechanism, but have specialized code generated from the regex if it was a string literal.
+
+### SVG renderer
+
+Because when rendering either a GUI or a data plot, vector graphics comes in handy, and I'm already fixated on XML, SVG seems like a natural choice. Generating shaders specific to a given SVGs would allow for instant resizes with no pixelating in between and **extremely** low power usage when rendering UIs with SVG elements in them (Open, Save buttons, scroll bars, what not.)
+
+#### Needed features
+
+- SVG to shader
+	- SPIR-V/DXIL?
+	- Hook it into OpenVG?
+		- perhaps less work, bit less intersting but if vendors have their own OpenVG implementations, it might be faster than hooking it into a generic API.
+
+#### Would be awesome
+
+- Constexpr capable
+	- Needs static reflection to make sense.
+
+### Build system/server
+
+Because I'm not satisfied with any of the build systems out there, I would very much like to cook one that is better than the rest. Problems with the current cross-plat build systems:
+
+- CMake
+	- The scripting language sucks
+	- No tooling around debugging the sucky scripting language
+	- Is too much pain to master only to get a build running
+	- Teaching new languages (LaTeX, SYCL) require deep knowledge about the internals and has to be added as code to CMake itself
+- MSBuild
+	- Slow to parse XML
+	- Only knows MSVC, limited in Clang awareness, extremely limited GCC
+- Ninja
+	- Very good on the execution side
+	- It definitely requires some front-end (CMake)
+- QMake
+	- Too much tied to Qt
+- Qbs
+	- Not read much about it, though I take it is still very much aimed at serving Qt
+
+Looking at the foundations of most buildsystems (plus Meson, plus Buck, plus GNU Make), the best are Ninja and MSBuild. The very good properties of them are:
+
+- Ninja
+	- Blazingly fast
+	- Favors execution instead of hand-authoring
+- MSBuild
+	- Declarative
+	- Language aware
+		- Though I would tweak it to map closer to the language at hand
+	- Graphical front-end
+	- Extensible
+		- One can teach MSBuild a new language just by providing a schema of the languages compilation model. I need not be familiar with the internals of MSBuild as long as the schema entries which MSBuild can operate with are documented. This is how Clang/C2, ComputeCpp, and other integrations work, this is how F# was taught to MSBuild.
+
+#### Needed features
+
+- Language aware
+	- Whatever language I compile, it must fit like a glove
+- Extensible
+	- The very first languages must be implemented using the same _extension API_ others are meant to use
+- Fast
+	- EXI as makefiles. I don't read Ninja, neither will I read EXI.
+- Graphical front-end
+	- I don't want to author makefiles, ever.
+- Build server
+	- Incremental builds
+	- Language server hooks
+
+#### Would be awesome
+
+- Tooling
+	- IDE infers as much from the source code as possible
+		- Language version
+		- Dependencies
+			- If I include a Boost header for eg., it should add a renference to it.
+
+### GUI
+
+A proper cross-plat GUI library
+
+#### Needed features
+
+- Cross-plat
+	- Windows, Linux, OSX
+- Modern back-ends
+	- Vulkan
+- Declarative
+	- XAML (Standard)
+- _Controls_ (GUI elements)
+	- The usual desktop stuff
+		- Text
+			- Math (MathML)
+		- Layout controls
+		- Scroll bars
+		- Buttons, Radio buttons, Check boxes, etc.
+		- Spinners
+		- etc.
+	- API canvases
+		- In Vulkan back-end, that is a Vulkan context
+	- Plotting control
+
+#### Would be awesome
+
+- Metaclass generated
+	- Could be driving the C++ Metaclass proposal, implementing a constexpr friendly version of this XAML compiler, not needing any external tooling.
+
+#### Open questions
+
+- Native/managed?
+	- How can one omit recompilation of GUI elements without a stable ABI? There's no portable COM, so...
+		- .Net CLR?
+		- Couple it to some external tool (the aforementioned build system?) and recompile on every deployment?
+
+### IDE
+
 	• IDE
 		○ Natív/managed?
 	• Build system
