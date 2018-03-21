@@ -5,3 +5,5 @@
 - whole program compilation
 
 - aligment ; experimental
+- control over memory layout
+- no GC or optional
