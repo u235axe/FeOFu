@@ -52,7 +52,6 @@
 - Writing SIMD code is so-so.
 - Bad compiler performance.
 - IDE support is not as good as C++, and besides the IDEA plugin nothing works out of the box.
-- Great macros.
 - Certain syntax elements mean totally different things compared to mainstream languages.
 - Ownership and borrowing is hard to understand for an average programmer.
 
@@ -60,6 +59,7 @@
 
 - Great performance.
 - Type inference.
+- Great macros.
 - Interopability with C and C++ code.
 - Safety through memory ownership.
 - Useful compiler warning / error messages.
