@@ -11,6 +11,7 @@
 - Warnings and error messages can get really confusing.
 - No standard binary interface (only C has one!)
 - Compile time programming is drastically different than runtime level.
+- No non-local returns. Only possible with exceptions, but they are not intended for regular flow control.
 
 ### Good parts
 
