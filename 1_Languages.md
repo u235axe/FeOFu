@@ -21,12 +21,17 @@
 
 ### Bad parts
 
-- Performance issues. Optimized code requires lots of workarounds and "messing" up the code.
+- Performance issues.
+- Optimized code requires lots of workarounds and "messing" up the code.
 - Mandatory GC.
 - Bad compiler performance.
 - IDEs are in a bad state.
 - Interop with C code is not as easy as C++ or Rust.
 - Requires initializing a runtime when called in external code.
+- Unusual syntax for the average programmer.
+- High barrier of entry for the average programmer experienced in imperative languages.
+- Most of the packages are hard to understand for newcomers and they tend to be very "academic".
+- Scoping depends on spacing.
 
 ### Good parts
 
@@ -43,6 +48,8 @@
 - Bad compiler performance.
 - IDE support is not as good as C++, and besides the IDEA plugin nothing works out of the box.
 - Great macros.
+- Certain syntax elements mean totally different things compared to mainstream languages.
+- Ownership and borrowing is hard to understand for an average programmer.
 
 ### Good parts
 
@@ -51,6 +58,9 @@
 - Interopability with C and C++ code.
 - Safety through memory ownership.
 - Useful compiler warning / error messages.
+- Syntax is similar to C++ / C family of languages.
+- Great build system and package manager.
+- Compiler can generate strict memory access patterns by using the ownership information.
 
 ## Python
 
@@ -59,6 +69,7 @@
 - Super slow!
 - Dynamic typing.
 - Mandatory GC.
+- Scoping depends on spacing.
 
 ### Good parts
 
