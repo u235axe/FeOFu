@@ -15,7 +15,7 @@
 
 ### Good parts
 
-- Great performance.
+- Copiled code performs great.
 - Interopability with C code.
 - Almost every API has C++ (C) bindings.
 - Not adding runtime overhead with new features.
@@ -24,10 +24,10 @@
 
 ### Bad parts
 
-- Performance issues.
+- Compiled code performs bad.
 - Optimized code requires lots of workarounds and "messing" up the code.
 - Mandatory GC.
-- Bad compiler performance.
+- Slow compiler.
 - IDEs are in a bad state.
 - Interop with C code is not as easy as C++ or Rust.
 - Requires initializing a runtime when called in external code.
@@ -50,14 +50,14 @@
 
 - Generics is still lacking compared to C++ templates. (no cimpiler time integer arithmetic for at least 2019-2020)
 - Writing SIMD code is so-so.
-- Bad compiler performance.
+- Slow compiler.
 - IDE support is not as good as C++, and besides the IDEA plugin nothing works out of the box.
 - Certain syntax elements mean totally different things compared to mainstream languages.
 - Ownership and borrowing is hard to understand for an average programmer.
 
 ### Good parts
 
-- Great performance.
+- Compiled code perfroms great.
 - Type inference.
 - Great macros.
 - Interopability with C and C++ code.
