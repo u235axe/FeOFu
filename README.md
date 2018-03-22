@@ -5,7 +5,7 @@ In this repository we'd like to collect ideas that would lead to better programm
 
 First, we'd like to list the following:
 
-1. Problems and limitations of existing programming languages that cause trouble in one or more setting either in developer experience performance or other aspects.
+1. Problems and limitations of existing programming languages that cause trouble in one or more setting either in developer experience, performance or other aspects.
 
 2. Similar collection for APIs and/or libraries, specifically in the context of GPU and / or graphics APIs, like OpenGL, OpenCL, Vulkan, CUDA, SYCL, DirectX, but non limited to these.
 
