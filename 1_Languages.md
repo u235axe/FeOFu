@@ -35,6 +35,7 @@
 - Most of the packages are hard to understand for newcomers and they tend to be very "academic".
 - Scoping depends on spacing.
 - Namespace pollution by record accessor names forced to be unique globally
+- Impure functions unreasonably pollute function types (random number generation)
 
 ### Good parts
 
