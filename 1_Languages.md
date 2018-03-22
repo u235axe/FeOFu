@@ -7,8 +7,10 @@
 - Does not enforce safety like Rust does.
 - Huge existing codebases mean it's always hard to use the latest and greatest standard.
 - No reflection.
-- Macros are outdated.
+- Macros are outdated and unsafe (not typed).
 - Warnings and error messages can get really confusing.
+- No standard binary interface (only C has one!)
+- Compile time programming is drastically different than runtime level.
 
 ### Good parts
 
@@ -32,6 +34,7 @@
 - High barrier of entry for the average programmer experienced in imperative languages.
 - Most of the packages are hard to understand for newcomers and they tend to be very "academic".
 - Scoping depends on spacing.
+- Namespace pollution by record accessor names forced to be unique globally
 
 ### Good parts
 
@@ -43,7 +46,7 @@
 
 ### Bad parts
 
-- Generics is still lacking compared to C++ templates.
+- Generics is still lacking compared to C++ templates. (no cimpiler time integer arithmetic for at least 2019-2020)
 - Writing SIMD code is so-so.
 - Bad compiler performance.
 - IDE support is not as good as C++, and besides the IDEA plugin nothing works out of the box.
