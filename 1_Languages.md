@@ -2,7 +2,7 @@
 
 ## C++ (including modern standards)
 
-### Problems
+### Bad parts
 
 - Does not enforce safety like Rust does.
 - Huge existing codebases mean it's always hard to use the latest and greatest standard.
@@ -10,7 +10,7 @@
 - Macros are outdated.
 - Warnings and error messages can get really confusing.
 
-### Good parts to keep
+### Good parts
 
 - Great performance.
 - Interopability with C code.
