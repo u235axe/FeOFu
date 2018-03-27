@@ -6,6 +6,9 @@
 ### Data Flow Fusion
 [Data Flow Fusion with Series Expressions in Haskell](http://repa.ouroborus.net/#DataFlowFusion)
 
+### unified effectful and pure syntax
+[Ben Lippmeier - An overview of the DDC compiler](https://www.youtube.com/watch?v=QShfhs7nToI)
+
 ### existing ideas and implementations
 - gpgpu languages / array languages:  futhark, repa
 - multi-stage languages:              ber meta ocaml
