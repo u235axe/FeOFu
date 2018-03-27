@@ -3,6 +3,9 @@
 ### compile time garbage collection
 [ASAP: As Static As Possible memory management](http://www.cl.cam.ac.uk/techreports/UCAM-CL-TR-908.html)
 
+### Data Flow Fusion
+[Data Flow Fusion with Series Expressions in Haskell](http://repa.ouroborus.net/#DataFlowFusion)
+
 ### existing ideas and implementations
 - gpgpu languages / array languages:  futhark, repa
 - multi-stage languages:              ber meta ocaml
