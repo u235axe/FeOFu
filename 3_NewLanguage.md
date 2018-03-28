@@ -21,7 +21,9 @@ The control over the allocated memory should be in the hands of the programmer, 
 
 ## Things to discuss
 - Indirect access: pointers / references how?
-  Only 2 can be chosen of the following three: sharing, mutation, interior pointers
+  Only 2 can be chosen of the following three: sharing, mutation, interior pointers] 
+  
+  ![Choose at most two](ChooseTwo.svg)
 
 - Scoping, modules, objects
 - Pure, impure, semi-pure functions and closures (important example: random number generators and I/O)
