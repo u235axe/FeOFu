@@ -30,5 +30,5 @@ The control over the allocated memory should be in the hands of the programmer, 
 - Declarative compiler stage definitions via recursion schemes
 - User defined stages / rewrite rules?
 - high level vs low level GPU API
-  - high level: *accelerate, futhark*
-  - low level: *obsidian, [Functional Compute Language](https://github.com/dybber/fcl/blob/master/publications/fhpc2016-fcl.pdf)*
+  - high level: *accelerate, futhark* ; **automagically works (or not)** (depends on fusion implicitly)
+  - low level: *obsidian, [Functional Compute Language](https://github.com/dybber/fcl/blob/master/publications/fhpc2016-fcl.pdf)* ; **explicit user control**
