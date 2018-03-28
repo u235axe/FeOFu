@@ -29,3 +29,6 @@ The control over the allocated memory should be in the hands of the programmer, 
 - Pure, impure, semi-pure functions and closures (important example: random number generators and I/O)
 - Declarative compiler stage definitions via recursion schemes
 - User defined stages / rewrite rules?
+- high level vs low level GPU API
+  - high level: *accelerate, futhark*
+  - low level: *obsidian, [Functional Compute Language](https://github.com/dybber/fcl/blob/master/publications/fhpc2016-fcl.pdf)*
