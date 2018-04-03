@@ -21,3 +21,11 @@ languages to check
 - [urweb](http://www.impredicative.com/ur/): - what happens with runtime polymorphismin the back-end?
 
 [holyjit](https://github.com/nbp/holyjit): this is also some kind of partial evaluation thing and I don't really understand it
+
+### Minimal use-case test comparisons
+#### Low-level
+- Obsidian
+- Fcl
+#### High-level
+- Accelerate
+- Futhark
