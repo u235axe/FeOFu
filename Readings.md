@@ -29,3 +29,6 @@ languages to check
 #### High-level
 - Accelerate
 - Futhark
+
+### GHC simplifier
+- [Compilation by transformation for non-strict functional languages](https://www.microsoft.com/en-us/research/publication/compilation-transformation-non-strict-functional-languages)
