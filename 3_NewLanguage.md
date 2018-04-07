@@ -53,6 +53,15 @@ Otherwise we may introduce special contructs.
 Effect system might be needed, like PureScript.
 If it is annotations like and not dependent, we could include it. Otherwise, annotation is needed from the programmer. There could be other complications, when effectful functions are composed between other effectful or non-effectful functions: when does the side effect triggers? Do we need polymorphism for this to avoid syntactic noise?
 
+6. Compilation types:
+Fast: interpreter like - simple memory representation
+Slow: costy full analysis + ASAP analised representation
+
+We may want to be able to change between the two at runtime, start with the fast, gradually change to the other as it becomes available. Goal: minimize development cycle. Final version always should be the full analysis version.
+
+7. Decision related to dependent typing:
+We monomoprhise from the dependently typed representation to the internal language, this way there should be no polymorphism left. This affects the memory layout: the user cannot represent simple dependent code: like reading variable length data at runtime. Does Introducing a variable length array type enough to cover the affected practical cases? What are the limitations, trade-offs?
+
 
 ## Things to discuss
 - Indirect access: pointers / references how?
@@ -67,3 +76,45 @@ If it is annotations like and not dependent, we could include it. Otherwise, ann
 - high level vs low level GPU API
   - high level: *accelerate, futhark* ; **automagically works (or not)** (depends on fusion implicitly)
   - low level: *obsidian, [Functional Compute Language](https://github.com/dybber/fcl/blob/master/publications/fhpc2016-fcl.pdf)* ; **explicit user control**
+  
+  
+  
+## Current design of the compiler:
+
+* Frontend - Dependently typed language, exressive, lots of information implicit
+
+Elaboration: Frontend -> Core
+	- Desugaring
+	- Implicit -> Explicit
+        - Type inference
+        - Type checking
+        - Name resolution / scope checking
+	- Binding time analysis
+	
+* Core nyelv - Dependently typed language with less elements, no memory layout info, everything is explicit
+
+Transformations: Core to Core
+	- Memory layout analysis
+	- Partial evaluation
+	- Optimalization passes
+
+Core -> Backend transformation
+	- Erasure (Eliminating polymorph type arguments from indexed types, like props)
+          and / or Monomorfization: partial application on all type applications, again, polymorphism will be eliminated. Conversion of Pi types into simple functions (arrows): (eval Pi)
+	- Prop analysis		
+	- Closure conversion
+	- Lambda lifting
+        - Defunctionalization (generate eval/apply because of strictness)
+
+        
+* Backend - low level, Grin: LLVM like type system + sumtype, First order, strict, monomorf, immutable, SSA
+	Short circuit: the interpreter like output exits here
+
+	Grin Transformation: Grin -> Grin
+	- ASAP heap / GRIN Heap hoisture analysis
+	- Full program analysis
+	- GRIN optimalisations: like case branch analysis, ...
+	
+final: GRIN -> LLVM
+
+* LLVM
