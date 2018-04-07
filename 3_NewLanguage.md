@@ -19,6 +19,41 @@ Layout in memory requires extensive care in context of performance tuning, espec
 - no GC or optional
 The control over the allocated memory should be in the hands of the programmer, because many real world problems are memory limited, and it is a complicated problem dependent task to fit every necessary data into the operational memory, especially, whan parts of it are dynamically re-allocated. Also, the point when GC kicks in could cause unplannable performance hits on runtime, causeing e.g. unexpectedly long frame time, or similar phenomena. 
 
+
+## Design considerations:
+
+1.: Static GC based on ASAP (see readings.md).
+This analysis could insert memory deallocation based on analysis of heap structure, scoping etc. It still keeps GC, but also the runtime cost of that is reduced.
+
+Fusing and reuse is not implemented in that document, but seems possible.
+
+
+2.: Pointers, mutability, interior refernces:
+Only two is possible out of this three at the same time.
+We stick with immutability.
+
+
+3: Modules, records, objects:
+
+Agda modules seems to be a good starting point, but we need a clear summary on their limitations, we may need more to cover the use-case of prgama driven code specialsation like C/C++. Same with records.
+
+At the widest scope, we may want to specialise a module or record programmatically, cluding all its contents (nested types, constants, functions, etc.). We need use-cases on this.
+
+
+4.: Recursion:
+Do we need a separate primitive or not?
+
+Detecting multiple nested recursions between n functions and generating efficient code from that is hard.
+Question: how frequent are these in real code?
+Tail Call Elmination could solve some part of the issue, but we need use-cases and summary of the limitations of TCE.
+
+Otherwise we may introduce special contructs.
+
+5.: Impure functions: IO és random generatos
+Effect system might be needed, like PureScript.
+If it is annotations like and not dependent, we could include it. Otherwise, annotation is needed from the programmer. There could be other complications, when effectful functions are composed between other effectful or non-effectful functions: when does the side effect triggers? Do we need polymorphism for this to avoid syntactic noise?
+
+
 ## Things to discuss
 - Indirect access: pointers / references how?
   Only 2 can be chosen of the following three: sharing, mutation, interior pointers] 
