@@ -49,7 +49,7 @@ Tail Call Elmination could solve some part of the issue, but we need use-cases a
 
 Otherwise we may introduce special contructs.
 
-5.: Impure functions: IO és random generatos
+5.: Impure functions: IO and random generators
 Effect system might be needed, like PureScript.
 If it is annotations like and not dependent, we could include it. Otherwise, annotation is needed from the programmer. There could be other complications, when effectful functions are composed between other effectful or non-effectful functions: when does the side effect triggers? Do we need polymorphism for this to avoid syntactic noise?
 
@@ -91,7 +91,7 @@ Elaboration: Frontend -> Core
         - Name resolution / scope checking
 	- Binding time analysis
 	
-* Core nyelv - Dependently typed language with less elements, no memory layout info, everything is explicit
+* Core language - Dependently typed language with less elements, no memory layout info, everything is explicit
 
 Transformations: Core to Core
 	- Memory layout analysis
