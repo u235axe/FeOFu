@@ -96,36 +96,35 @@ We monomoprhise from the dependently typed representation to the internal langua
 * Frontend - Dependently typed language, exressive, lots of information implicit
 
 Elaboration: Frontend -> Core
-	- Desugaring
-	- Implicit -> Explicit
-        - Type inference
-        - Type checking
-        - Name resolution / scope checking
-	- Binding time analysis
+- Desugaring
+- Implicit -> Explicit
+- Type inference
+- Type checking
+- Name resolution / scope checking
+- Binding time analysis
 	
 * Core language - Dependently typed language with less elements, no memory layout info, everything is explicit
 
 Transformations: Core to Core
-	- Memory layout analysis
-	- Partial evaluation
-	- Optimalization passes
+- Memory layout analysis
+- Partial evaluation
+- Optimalization passes
 
 Core -> Backend transformation
-	- Erasure (Eliminating polymorph type arguments from indexed types, like props)
+- Erasure (Eliminating polymorph type arguments from indexed types, like props)
           and / or Monomorfization: partial application on all type applications, again, polymorphism will be eliminated. Conversion of Pi types into simple functions (arrows): (eval Pi)
-	- Prop analysis		
-	- Closure conversion
-	- Lambda lifting
-        - Defunctionalization (generate eval/apply because of strictness)
+- Prop analysis		
+- Closure conversion
+- Lambda lifting
+- Defunctionalization (generate eval/apply because of strictness)
 
-        
 * Backend - low level, Grin: LLVM like type system + sumtype, First order, strict, monomorf, immutable, SSA
 	Short circuit: the interpreter like output exits here
 
-	Grin Transformation: Grin -> Grin
-	- ASAP heap / GRIN Heap hoisture analysis
-	- Full program analysis
-	- GRIN optimalisations: like case branch analysis, ...
+Grin Transformation: Grin -> Grin
+- ASAP heap / GRIN Heap hoisture analysis
+- Full program analysis
+- GRIN optimalisations: like case branch analysis, ...
 	
 final: GRIN -> LLVM
 
