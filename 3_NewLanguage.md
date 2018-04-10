@@ -59,6 +59,18 @@ Slow: costy full analysis + ASAP analised representation
 
 We may want to be able to change between the two at runtime, start with the fast, gradually change to the other as it becomes available. Goal: minimize development cycle. Final version always should be the full analysis version.
 
+#### Note/question by Máté:
+
+Is this really necessary? There are two ways that can mitigate this issue without having to jump through flaming hoops.
+
+- Tooling tends to shift toward favoring build servers vs. traditional one-shot build systems. (The name renders it google-immune, build service would've been a better choice, hence I'll call it that.) A build server is a constantly running process, which when thought of very simply, keeps invoking `make` behind the background. Smarter build servers are instructed by the IDE, when certain files are edited, they trigger events in the build service which can invoke incremental builds with surgical precision. Modern build systems like meson and buck also insepct the contents and outcome of files and don't rebuild when not necessary.
+  - Writing a comment inside the code has no impact on the binary, and even though timestamps of the output changes, building of depending files will not trigger.
+  - Similarily, updating the private interface of a file does not change the exported symbols, so no re-linking is required.
+  - These checks can be accelerated by hasing output binary files behind the scenes, buildling symbol tables, etc. Many things that can be done while the code is being edited, so builds will be faster.
+- Optimizing the back-end for compilation speed. HSA uses an IR format that is very fast to compile for target back-ends (O(ms)), which is done on every application start. The HSA runtime is free to implement any caching mechanism it sees fit, but a few milliseconds delay "JIT"-ing HSAIL to binary is affordable.
+
+I would argue that for the sake of reducing the time of the Edit-Build-Debug cycle, implementing a tricky on-the-fly migration of binary or even data layout is simply not worth it. I would sooner advocate for a well designed compilation model (something that has been layed out well) and write tooling accordingly. I would gladly engage in this part of the project.
+
 7. Decision related to dependent typing:
 We monomoprhise from the dependently typed representation to the internal language, this way there should be no polymorphism left. This affects the memory layout: the user cannot represent simple dependent code: like reading variable length data at runtime. Does Introducing a variable length array type enough to cover the affected practical cases? What are the limitations, trade-offs?
 
