@@ -9,6 +9,9 @@
 ### unified effectful and pure syntax
 [Ben Lippmeier - An overview of the DDC compiler](https://www.youtube.com/watch?v=QShfhs7nToI)
 
+### high-performance SIMD programming on the CPU 
+[Efficiently coding for modern CPUs by Edward Kmett](https://www.youtube.com/watch?v=KzqNQMpRbac)
+
 ### existing ideas and implementations
 - gpgpu languages / array languages:  futhark, repa
 - multi-stage languages:              ber meta ocaml
