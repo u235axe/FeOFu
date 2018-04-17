@@ -137,3 +137,15 @@ Grin Transformation: Grin -> Grin
 final: GRIN -> LLVM
 
 * LLVM
+
+# Random observations
+
+Type-in-Type plus Prop allows memory safety to be violated:
+
+ 1. Girard's paradox normally only allows one to construct an infinitely-looping term, invalidating the type system's consistency-as-a-logic (every type is inhabited), but not violating type safety / memory safety (no UB).
+ 
+ 2. But if we use Girard's paradox to prove something in Prop, then the proof is not evaluated (which would loop), but is instead erased, so we can create false assumptions and use them.
+ 
+ 3. So we can falsely prove e.g. that an index is in-bounds of an array when it isn't, and access arbitrary memory at runtime.
+ 
+As long as the goal is only to protect against programmer mistakes, and not against dedicated attackers looking for exploits, this shouldn't be a huge problem (it is hard to write Girard's paradox on purpose, let alone by accident).
