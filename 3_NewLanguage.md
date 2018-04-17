@@ -71,6 +71,9 @@ Is this really necessary? There are two ways that can mitigate this issue withou
 
 I would argue that for the sake of reducing the time of the Edit-Build-Debug cycle, implementing a tricky on-the-fly migration of binary or even data layout is simply not worth it. I would sooner advocate for a well designed compilation model (something that has been layed out well) and write tooling accordingly. I would gladly engage in this part of the project.
 
+#### Reply to Máté:
+Optimization and runtime editing are two different aspects. The mentioned memory transition is simply an optimization pass at runtime, it is not related to runtime editing of the code. Editing is difficult as someone needs to prove the invariance of the change.
+
 7. Decision related to dependent typing:
 We monomoprhise from the dependently typed representation to the internal language, this way there should be no polymorphism left. This affects the memory layout: the user cannot represent simple dependent code: like reading variable length data at runtime. Does Introducing a variable length array type enough to cover the affected practical cases? What are the limitations, trade-offs?
 
@@ -89,7 +92,10 @@ We monomoprhise from the dependently typed representation to the internal langua
   - high level: *accelerate, futhark* ; **automagically works (or not)** (depends on fusion implicitly)
   - low level: *obsidian, [Functional Compute Language](https://github.com/dybber/fcl/blob/master/publications/fhpc2016-fcl.pdf)* ; **explicit user control**
   
-  
+ - Frontend syntax (curlybraced imperative-like, functional Haskell like)
+ - Domain model for GPU concepts (primitive types and functions)
+ - Nodegraph editing: what would be the good representation and mechanism for node based editing of a functional language?
+ - Node edig tech: nodejs + yarn + ..., server side rendering and streaming...
   
 ## Current design of the compiler:
 
@@ -125,6 +131,8 @@ Grin Transformation: Grin -> Grin
 - ASAP heap / GRIN Heap hoisture analysis
 - Full program analysis
 - GRIN optimalisations: like case branch analysis, ...
+
+- Grin handling of FFI: treats them as builtins.
 	
 final: GRIN -> LLVM
 
