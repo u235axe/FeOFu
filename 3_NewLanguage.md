@@ -74,8 +74,10 @@ I would argue that for the sake of reducing the time of the Edit-Build-Debug cyc
 #### Reply to Máté:
 Optimization and runtime editing are two different aspects. The mentioned memory transition is simply an optimization pass at runtime, it is not related to runtime editing of the code. Editing is difficult as someone needs to prove the invariance of the change.
 
+
 7. Decision related to dependent typing:
 We monomoprhise from the dependently typed representation to the internal language, this way there should be no polymorphism left. This affects the memory layout: the user cannot represent simple dependent code: like reading variable length data at runtime. Does Introducing a variable length array type enough to cover the affected practical cases? What are the limitations, trade-offs?
+
 
 
 ## Things to discuss
@@ -137,6 +139,19 @@ Grin Transformation: Grin -> Grin
 final: GRIN -> LLVM
 
 * LLVM
+
+## Plans on the implementation of the frontend type checker
+In parens the expected difficulty of implementation
+- Dependent core (1)
+- Prop (?)
+- Type inference (6)
+- Inductive data (15)
+-- Dependent pattern match
+- Modules, Namespacing
+-- Simple (3)
+-- More usable (10)
+- Partial Application and Evaluation (?)
+-- Binding time analysis
 
 # Random observations
 
