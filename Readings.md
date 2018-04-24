@@ -35,3 +35,8 @@ languages to check
 
 ### GHC simplifier
 - [Compilation by transformation for non-strict functional languages](https://www.microsoft.com/en-us/research/publication/compilation-transformation-non-strict-functional-languages)
+
+
+### Dependent Type implementation tutorials
+- [Lambda Pi](https://www.andres-loeh.de/LambdaPi/)
+- [Simple Easy!](http://strictlypositive.org/Easy.pdf)
