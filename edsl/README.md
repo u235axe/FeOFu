@@ -3,7 +3,7 @@
 ```
 stack setup
 stack build
-stack exec -- idris
+stack exec -- idris Graphics.idr
 ```
 
 ### Editors for Idris
