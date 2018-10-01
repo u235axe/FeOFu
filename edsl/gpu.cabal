@@ -14,5 +14,6 @@ library
 
   build-depends:
       base
+    , idris
 
   default-language:    Haskell2010
