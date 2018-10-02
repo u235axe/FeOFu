@@ -55,7 +55,18 @@ data TextureArray
     | CubeTex       -- cube texture = array with size 6
 
 --data Sampler dim layerCount t ar
-data Sampler : TextureShape -> TextureArray -> TextureSemantics Type -> Type -> Type
+data Sampler : TextureShape -> TextureArray -> TextureSemantics Type -> ColorArity -> Type
+
+-- TODO
+{-
+type family TexelRepr sampler
+type instance TexelRepr (Sampler dim arr (v t) Red)     = t
+type instance TexelRepr (Sampler dim arr (v t) RG)      = V2 t
+type instance TexelRepr (Sampler dim arr (v t) RGB)     = V3 t
+type instance TexelRepr (Sampler dim arr (v t) RGBA)    = V4 t
+-}
+TexelRepr : Type -> Type
+TexelRepr _ = Unit -- TODO
 
 data V2 a = MkV2 a
 data V3 a = MkV3 a
@@ -431,8 +442,261 @@ data TextureType : TextureShape -> TextureMipMap -> TextureArray -> Nat -> Textu
     TextureBuffer   :  TextureDataType (Regular t) ar
                     -> TextureType Tex1D TexNoMip SingleTex 1 (Buffer t) ar
 
+--data Sampler : TextureShape -> TextureArray -> TextureSemantics Type -> Type -> Type
+
+GSampler1D : TextureSemantics Type -> ColorArity -> Type
+GSampler1D t ar        = Sampler Tex1D SingleTex t ar
+GSampler2D : TextureSemantics Type -> ColorArity -> Type
+GSampler2D t ar        = Sampler Tex2D SingleTex t ar
+GSampler3D : TextureSemantics Type -> ColorArity -> Type
+GSampler3D t ar        = Sampler Tex3D SingleTex t ar
+GSamplerCube : TextureSemantics Type -> ColorArity -> Type
+GSamplerCube t ar      = Sampler Tex2D CubeTex t ar
+GSampler1DArray : TextureSemantics Type -> ColorArity -> Type
+GSampler1DArray t ar   = Sampler Tex1D ArrayTex t ar
+GSampler2DArray : TextureSemantics Type -> ColorArity -> Type
+GSampler2DArray t ar   = Sampler Tex2D ArrayTex t ar
+GSampler2DRect : TextureSemantics Type -> ColorArity -> Type
+GSampler2DRect t ar    = Sampler TexRect SingleTex t ar
+
+-- shadow samplers
+Sampler1DShadow : Type
+Sampler1DShadow        = GSampler1D        (Shadow Float) Red
+Sampler2DShadow : Type
+Sampler2DShadow        = GSampler2D        (Shadow Float) Red
+SamplerCubeShadow : Type
+SamplerCubeShadow      = GSamplerCube      (Shadow Float) Red
+Sampler1DArrayShadow : Type
+Sampler1DArrayShadow   = GSampler1DArray   (Shadow Float) Red
+Sampler2DArrayShadow : Type
+Sampler2DArrayShadow   = GSampler2DArray   (Shadow Float) Red
+Sampler2DRectShadow : Type
+Sampler2DRectShadow    = GSampler2DRect    (Shadow Float) Red
+
+-- float samplers
+Sampler1D : Type -> ColorArity -> Type
+Sampler1D t ar        = GSampler1D        (Regular t) ar
+Sampler2D : Type -> ColorArity -> Type
+Sampler2D t ar        = GSampler2D        (Regular t) ar
+Sampler3D : Type -> ColorArity -> Type
+Sampler3D t ar        = GSampler3D        (Regular t) ar
+SamplerCube : Type -> ColorArity -> Type
+SamplerCube t ar      = GSamplerCube      (Regular t) ar
+Sampler1DArray : Type -> ColorArity -> Type
+Sampler1DArray t ar   = GSampler1DArray   (Regular t) ar
+Sampler2DArray : Type -> ColorArity -> Type
+Sampler2DArray t ar   = GSampler2DArray   (Regular t) ar
+Sampler2DRect : Type -> ColorArity -> Type
+Sampler2DRect t ar    = GSampler2DRect    (Regular t) ar
+Sampler2DMS : Type -> ColorArity -> Type
+Sampler2DMS t ar      = GSampler2D        (MultiSample t) ar
+Sampler2DMSArray : Type -> ColorArity -> Type
+Sampler2DMSArray t ar = GSampler2DArray   (MultiSample t) ar
+SamplerBuffer : Type -> ColorArity -> Type
+SamplerBuffer t ar    = GSampler1D        (Buffer t) ar
+
+-- brute force
+-- arity problem: lod
+-- restriction: NONE
+interface IsTextureSize sampler lod size where
+IsTextureSize  (Sampler1D t ar)           Int32   Int32 where
+IsTextureSize  (Sampler1DArray t ar)      Int32   V2I where
+IsTextureSize  (Sampler2D t ar)           Int32   V2I where
+IsTextureSize  (Sampler2DArray t ar)      Int32   V3I where
+IsTextureSize  (Sampler2DMS t ar)         ()      V2I where
+IsTextureSize  (Sampler2DMSArray t ar)    ()      V3I where
+IsTextureSize  (Sampler2DRect t ar)       ()      V2I where
+IsTextureSize  (Sampler3D t ar)           Int32   V3I where
+IsTextureSize  (SamplerCube t ar)         Int32   V2I where
+IsTextureSize  (SamplerBuffer t ar)       ()      Int32 where
+IsTextureSize  Sampler1DArrayShadow       Int32   V2I where
+IsTextureSize  Sampler1DShadow            Int32   Int32 where
+IsTextureSize  Sampler2DArrayShadow       Int32   V3I where
+IsTextureSize  Sampler2DRectShadow        ()      V2I where
+IsTextureSize  Sampler2DShadow            Int32   V2I where
+IsTextureSize  SamplerCubeShadow          Int32   V2I where
+
+-- arity problem: bias
+-- restriction: Regular union Shadow
+interface IsTexture sampler coord bias where
+IsTexture  (Sampler1D t ar)               Float   Float where
+IsTexture  (Sampler1DArray t ar)          V2F     Float where
+IsTexture  (Sampler2D t ar)               V2F     Float where
+IsTexture  (Sampler2DArray t ar)          V3F     Float where
+IsTexture  (Sampler2DRect t ar)           V2F     ()    where
+IsTexture  (Sampler3D t ar)               V3F     Float where
+IsTexture  (SamplerCube t ar)             V3F     Float where
+IsTexture  Sampler1DShadow                V3F     Float where
+IsTexture  Sampler1DArrayShadow           V3F     Float where
+IsTexture  Sampler2DShadow                V3F     Float where
+IsTexture  Sampler2DArrayShadow           V4F     ()    where
+IsTexture  Sampler2DRectShadow            V3F     ()    where
+IsTexture  SamplerCubeShadow              V4F     Float where
+
+-- arity problem: bias
+-- restriction: (Regular union Shadow) exclude Array
+interface IsTextureProj sampler coord bias where
+IsTextureProj  (Sampler1D t ar)           V2F     Float where
+IsTextureProj  (Sampler1D t ar)           V4F     Float where
+IsTextureProj  (Sampler2D t ar)           V3F     Float where
+IsTextureProj  (Sampler2D t ar)           V4F     Float where
+IsTextureProj  (Sampler2DRect t ar)       V3F     ()    where
+IsTextureProj  (Sampler2DRect t ar)       V4F     ()    where
+IsTextureProj  (Sampler3D t ar)           V4F     Float where
+IsTextureProj  Sampler1DShadow            V4F     Float where
+IsTextureProj  Sampler2DRectShadow        V4F     ()    where
+IsTextureProj  Sampler2DShadow            V4F     Float where
+
+-- arity ok
+-- restriction: ((Regular union Shadow) intersection Mip) exclude (2D Shadow Array)
+interface IsTextureLod sampler coord lod where
+IsTextureLod  (Sampler1D t ar)            Float   Float where
+IsTextureLod  (Sampler1DArray t ar)       V2F     Float where
+IsTextureLod  (Sampler2D t ar)            V2F     Float where
+IsTextureLod  (Sampler2DArray t ar)       V3F     Float where
+IsTextureLod  (Sampler3D t ar)            V3F     Float where
+IsTextureLod  (SamplerCube t ar)          V3F     Float where
+IsTextureLod  Sampler1DShadow             V3F     Float where
+IsTextureLod  Sampler1DArrayShadow        V3F     Float where
+IsTextureLod  Sampler2DShadow             V3F     Float where
+
+-- arity problem: bias
+-- restriction: (Regular union Shadow) excluding (Cube, 2D Shadow Array)
+interface IsTextureOffset sampler coord offset bias where
+IsTextureOffset  (Sampler1D t ar)         Float   Int32   Float where
+IsTextureOffset  (Sampler1DArray t ar)    V2F     Int32   Float where
+IsTextureOffset  (Sampler2D t ar)         V2F     V2I     Float where
+IsTextureOffset  (Sampler2DArray t ar)    V3F     V2I     Float where
+IsTextureOffset  (Sampler2DRect t ar)     V2F     V2I     ()    where
+IsTextureOffset  (Sampler3D t ar)         V3F     V3I     Float where
+IsTextureOffset  Sampler1DShadow          V3F     Int32   Float where
+IsTextureOffset  Sampler1DArrayShadow     V3F     Int32   Float where
+IsTextureOffset  Sampler2DShadow          V3F     V2I     Float where
+IsTextureOffset  Sampler2DRectShadow      V3F     V2I     ()    where
+
+-- arity problem: lod, sample
+interface IsTexelFetch sampler coord lod where
+IsTexelFetch  (Sampler1D t ar)            Int32   Int32 where
+IsTexelFetch  (Sampler1DArray t ar)       V2I     Int32 where
+IsTexelFetch  (Sampler2D t ar)            V2I     Int32 where
+IsTexelFetch  (Sampler2DArray t ar)       V3I     Int32 where
+IsTexelFetch  (Sampler2DMS t ar)          V2I     Int32 where
+IsTexelFetch  (Sampler2DMSArray t ar)     V3I     Int32 where
+IsTexelFetch  (Sampler2DRect t ar)        V2I     ()    where
+IsTexelFetch  (Sampler3D t ar)            V3I     Int32 where
+IsTexelFetch  (SamplerBuffer t ar)        Int32   ()    where
+
+-- arity problem: lod
+interface IsTexelFetchOffset sampler coord lod offset where
+IsTexelFetchOffset  (Sampler1D t ar)      Int32   Int32   Int32 where
+IsTexelFetchOffset  (Sampler1DArray t ar) V2I     Int32   Int32 where
+IsTexelFetchOffset  (Sampler2D t ar)      V2I     Int32   V2I   where
+IsTexelFetchOffset  (Sampler2DArray t ar) V3I     Int32   V2I   where
+IsTexelFetchOffset  (Sampler2DRect t ar)  V2I     ()      V2I   where
+IsTexelFetchOffset  (Sampler3D t ar)      V3I     Int32   V3I   where
+
+-- arity problem: bias
+interface IsTextureProjOffset sampler coord offset bias where
+IsTextureProjOffset  (Sampler1D t ar)      V2F     Int32   Float where
+IsTextureProjOffset  (Sampler1D t ar)      V4F     Int32   Float where
+IsTextureProjOffset  (Sampler2D t ar)      V3F     V2I     Float where
+IsTextureProjOffset  (Sampler2D t ar)      V4F     V2I     Float where
+IsTextureProjOffset  (Sampler3D t ar)      V4F     V3I     Float where
+IsTextureProjOffset  (Sampler2DRect t ar)  V3F     V2I     ()    where
+IsTextureProjOffset  (Sampler2DRect t ar)  V4F     V2I     ()    where
+IsTextureProjOffset  Sampler1DShadow       V4F     Int32   Float where
+IsTextureProjOffset  Sampler2DShadow       V4F     V2I     Float where
+IsTextureProjOffset  Sampler2DRectShadow   V4F     V2I     Float where
+
+-- arity ok
+interface IsTextureLodOffset sampler coord lod offset where
+IsTextureLodOffset  (Sampler1D t ar)       Float   Float   Int32 where
+IsTextureLodOffset  (Sampler1DArray t ar)  V2F     Float   Int32 where
+IsTextureLodOffset  (Sampler2D t ar)       V2F     Float   V2I   where
+IsTextureLodOffset  (Sampler2DArray t ar)  V3F     Float   V2I   where
+IsTextureLodOffset  (Sampler3D t ar)       V3F     Float   V3I   where
+IsTextureLodOffset  Sampler1DShadow        V3F     Float   Int32 where
+IsTextureLodOffset  Sampler1DArrayShadow   V3F     Float   Int32 where
+IsTextureLodOffset  Sampler2DShadow        V3F     Float   V2I   where
+
+-- arity ok
+interface IsTextureProjLod sampler coord lod where
+IsTextureProjLod  (Sampler1D t ar)         V2F     Float where
+IsTextureProjLod  (Sampler1D t ar)         V4F     Float where
+IsTextureProjLod  (Sampler2D t ar)         V3F     Float where
+IsTextureProjLod  (Sampler2D t ar)         V4F     Float where
+IsTextureProjLod  (Sampler3D t ar)         V4F     Float where
+IsTextureProjLod  Sampler1DShadow          V4F     Float where
+IsTextureProjLod  Sampler2DShadow          V4F     Float where
+
+-- arity ok
+interface IsTextureProjLodOffset sampler coord lod offset where
+IsTextureProjLodOffset  (Sampler1D t ar)   V2F     Float   Int32 where
+IsTextureProjLodOffset  (Sampler1D t ar)   V4F     Float   Int32 where
+IsTextureProjLodOffset  (Sampler2D t ar)   V3F     Float   V2I   where
+IsTextureProjLodOffset  (Sampler2D t ar)   V4F     Float   V2I   where
+IsTextureProjLodOffset  (Sampler3D t ar)   V4F     Float   V3I   where
+IsTextureProjLodOffset  Sampler1DShadow    V4F     Float   Int32 where
+IsTextureProjLodOffset  Sampler2DShadow    V4F     Float   V2F   where
+
+-- arity ok
+interface IsTextureGrad sampler coord dx dy where
+IsTextureGrad  (Sampler1D t ar)            Float   Float   Float where
+IsTextureGrad  (Sampler1DArray t ar)       V2F     Float   Float where
+IsTextureGrad  (Sampler2D t ar)            V2F     V2F     V2F   where
+IsTextureGrad  (Sampler2DArray t ar)       V3F     V2F     V2F   where
+IsTextureGrad  (Sampler2DRect t ar)        V2F     V2F     V2F   where
+IsTextureGrad  (Sampler3D t ar)            V3F     V3F     V3F   where
+IsTextureGrad  (SamplerCube t ar)          V3F     V3F     V3F   where
+IsTextureGrad  Sampler1DArrayShadow        V3F     Float   Float where
+IsTextureGrad  Sampler1DShadow             V3F     Float   Float where
+IsTextureGrad  Sampler2DArrayShadow        V4F     V2F     V2F   where
+IsTextureGrad  Sampler2DRectShadow         V3F     V2F     V2F   where
+IsTextureGrad  Sampler2DShadow             V3F     V2F     V2F   where
+IsTextureGrad  SamplerCubeShadow           V4F     V3F     V3F   where
+
+-- arity ok
+interface IsTextureGradOffset sampler coord dx dy offset where
+IsTextureGradOffset  (Sampler1D t ar)      Float   Float   Float   Int32 where
+IsTextureGradOffset  (Sampler1DArray t ar) V2F     Float   Float   Int32 where
+IsTextureGradOffset  (Sampler2D t ar)      V2F     V2F     V2F     V2I   where
+IsTextureGradOffset  (Sampler2DArray t ar) V3F     V2F     V2F     V2I   where
+IsTextureGradOffset  (Sampler2DRect t ar)  V2F     V2F     V2F     V2I   where
+IsTextureGradOffset  (Sampler3D t ar)      V3F     V3F     V3F     V3I   where
+IsTextureGradOffset  Sampler1DArrayShadow  V3F     Float   Float   Int32 where
+IsTextureGradOffset  Sampler1DShadow       V3F     Float   Float   Int32 where
+IsTextureGradOffset  Sampler2DArrayShadow  V4F     V2F     V2F     V2I   where
+IsTextureGradOffset  Sampler2DRectShadow   V3F     V2F     V2F     V2I   where
+IsTextureGradOffset  Sampler2DShadow       V3F     V2F     V2F     V2I   where
+
+-- arity ok
+interface IsTextureProjGrad sampler coord dx dy where
+IsTextureProjGrad  (Sampler1D t ar)        V2F     Float   Float where
+IsTextureProjGrad  (Sampler1D t ar)        V4F     Float   Float where
+IsTextureProjGrad  (Sampler2D t ar)        V3F     V2F     V2F   where
+IsTextureProjGrad  (Sampler2D t ar)        V4F     V2F     V2F   where
+IsTextureProjGrad  (Sampler2DRect t ar)    V3F     V2F     V2F   where
+IsTextureProjGrad  (Sampler2DRect t ar)    V4F     V2F     V2F   where
+IsTextureProjGrad  (Sampler3D t ar)        V4F     V3F     V3F   where
+IsTextureProjGrad  Sampler1DShadow         V4F     Float   Float where
+IsTextureProjGrad  Sampler2DRectShadow     V4F     V2F     V2F   where
+IsTextureProjGrad  Sampler2DShadow         V4F     V2F     V2F   where
+
+-- arity ok
+interface IsTextureProjGradOffset sampler coord dx dy offset where
+IsTextureProjGradOffset  (Sampler1D t ar)      V2F     Float   Float   Int32 where
+IsTextureProjGradOffset  (Sampler1D t ar)      V4F     Float   Float   Int32 where
+IsTextureProjGradOffset  (Sampler2D t ar)      V3F     V2F     V2F     V2I   where
+IsTextureProjGradOffset  (Sampler2D t ar)      V4F     V2F     V2F     V2I   where
+IsTextureProjGradOffset  (Sampler2DRect t ar)  V3F     V2F     V2F     V2I   where
+IsTextureProjGradOffset  (Sampler2DRect t ar)  V4F     V2F     V2F     V2I   where
+IsTextureProjGradOffset  (Sampler3D t ar)      V4F     V3F     V3F     V3I   where
+IsTextureProjGradOffset  Sampler1DShadow       V4F     Float   Float   Int32 where
+IsTextureProjGradOffset  Sampler2DRectShadow   V4F     V2F     V2F     V2I   where
+IsTextureProjGradOffset  Sampler2DShadow       V4F     V2F     V2F     V2I   where
+
 data PrimFun : Frequency -> Type -> Type where
-{-
+
     -- Vec/Mat (de)construction
     PrimTupToV2             : IsComponent a                            => PrimFun stage ((a,a)     -> V2 a)
     PrimTupToV3             : IsComponent a                            => PrimFun stage ((a,a,a)   -> V3 a)
@@ -440,7 +704,7 @@ data PrimFun : Frequency -> Type -> Type where
     PrimV2ToTup             : IsComponent a                            => PrimFun stage (V2 a     -> (a,a))
     PrimV3ToTup             : IsComponent a                            => PrimFun stage (V3 a   -> (a,a,a))
     PrimV4ToTup             : IsComponent a                            => PrimFun stage (V4 a -> (a,a,a,a))
--}
+
     -- Arithmetic Functions (componentwise)
     PrimAdd                 : (IsNum t, IsMatVec a t)                              => PrimFun stage ((a,a)   -> a)
     PrimAddS                : (IsNum t, IsMatVecScalar a t)                        => PrimFun stage ((a,t)   -> a)
@@ -572,7 +836,7 @@ data PrimFun : Frequency -> Type -> Type where
     PrimNoise2              : (IsVecScalar d a Float, IsVecScalar 2 b Float)    => PrimFun stage (a -> b)
     PrimNoise3              : (IsVecScalar d a Float, IsVecScalar 3 b Float)    => PrimFun stage (a -> b)
     PrimNoise4              : (IsVecScalar d a Float, IsVecScalar 4 b Float)    => PrimFun stage (a -> b)
-{-
+
     -- Texture Lookup Functions
     PrimTextureSize             : IsTextureSize sampler lod size                           => PrimFun stage ((sampler,lod)                       -> size)
     PrimTexture                 : IsTexture sampler coord bias                             => PrimFun stage ((sampler,coord)                     -> TexelRepr sampler)
@@ -593,4 +857,4 @@ data PrimFun : Frequency -> Type -> Type where
     PrimTextureGradOffset       : IsTextureGradOffset sampler coord dx dy offset           => PrimFun stage ((sampler,coord,dx,dy,offset)        -> TexelRepr sampler)
     PrimTextureProjGrad         : IsTextureProjGrad sampler coord dx dy                    => PrimFun stage ((sampler,coord,dx,dy)               -> TexelRepr sampler)
     PrimTextureProjGradOffset   : IsTextureProjGradOffset sampler coord dx dy offset       => PrimFun stage ((sampler,coord,dx,dy,offset)        -> TexelRepr sampler)
--}
+
