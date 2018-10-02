@@ -8,3 +8,9 @@ packages:
 extra-deps:
   - idris-1.3.0
 
+nix:
+#  enable: true
+  pure: true
+  packages: [zlib]
+  add-gc-roots: true
+
