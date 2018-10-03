@@ -20,3 +20,12 @@ What is variable is the inefficiencies (stalls, etc.) relative to the theoretica
 
 Bank conflict video:
 https://www.youtube.com/watch?v=CZgM3DEBplE
+
+Additional resources on costs:
+http://on-demand.gputechconf.com/gtc/2016/presentation/s6382-karthik-ravi-Perf-considerations-for-OpenCL.pdf (also the references on page 7)
+
+Information on the most recent limitations and development directions, see e.g. in CUDA:
+https://docs.nvidia.com/cuda/volta-tuning-guide/index.html#volta-tuning
+
+Similar for AMD, see especially section 2.4 for bandwidth and 2.6 on latency hiding:
+https://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Opencl-optimization.html
