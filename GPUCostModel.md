@@ -22,6 +22,7 @@ Bank conflict video:
 https://www.youtube.com/watch?v=CZgM3DEBplE
 
 Additional resources on costs:
+https://www.cvg.ethz.ch/teaching/2011spring/gpgpu/GPU-Optimization.pdf
 http://on-demand.gputechconf.com/gtc/2016/presentation/s6382-karthik-ravi-Perf-considerations-for-OpenCL.pdf (also the references on page 7)
 
 Information on the most recent limitations and development directions, see e.g. in CUDA:
