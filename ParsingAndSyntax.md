@@ -7,6 +7,8 @@ An incomplete but detailed blog on writing parsers:
 
 [salsa-rs](https://github.com/salsa-rs)
 
-[rust-analyzer](https://github.com/rust-analyzer/rust-analyzer)
+[rust-analyzer](https://github.com/rust-analyzer/rust-analyzer), [rust-analyzer/rowan](https://github.com/rust-analyzer/rowan)
 
 [pikelet](https://github.com/pikelet-lang/pikelet)
+
+[rustc on demand incremental design](https://github.com/nikomatsakis/rustc-on-demand-incremental-design-doc)
