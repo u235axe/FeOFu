@@ -1,4 +1,4 @@
-##Musings on the design of scientific computing platforms
+## Musings on the design of scientific computing platforms
 
 The goal: We want a scientific computing platform which allow scientists to work close to "ideal" efficiency. This document is biased towards (symbolic) mathematics, but that's fine.
 
