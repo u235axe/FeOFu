@@ -15,7 +15,28 @@ Main point: the parser / compiler must be designed with IDE support in mind, tha
    * "Next, we define a family of parser combinators which operate on typed grammars. Our parser combinators have a very simple implementation story -- there's no backtracking and no fancy lookahead, so the type of parsers is as simple as can be."
    
    * "Our parser combinators have very predictable performance, but are still fairly slow, due to all the overhead of indirecting through function pointers (due to all the higher-order functions involved). So we use staged programming to eliminate this overhead."
+   
+ * GLL parsing
+   
+   I have recently heard from multiple sources that GLL is allegedly the best modern solution to parsing. Its main advantages seem to be that it's recursive-descent and so suitable for parser combinators, can handle left-recursive and ambiguous grammars, and is O(n) for deterministic ones (O(n^3) in the general case). I haven't had time to study it further, but here is a selection of links I found:
+   
+     * https://github.com/djspiewak/gll-combinators#theory (Scala library)
+     
+     * http://dotat.at/tmp/gll.pdf original paper, 2010
+     
+     * http://hackage.haskell.org/package/gll (Haskell library)
+     
+     * http://www.cs.rhul.ac.uk/research/languages/csle/GLLparsers.html
+     
+     * http://www.codecommit.com/blog/scala/unveiling-the-mysteries-of-gll-part-2
+     
+     * http://dinhe.net/~aredridel/.notmine/PDFs/Parsing/IZMAYLOVA,%20Anastasia%20&%20AFROOZEH%20-%20Faster,%20Practical%20GLL%20Parsing.pdf 2015
+     
+     * https://dl.acm.org/citation.cfm?id=2950603 "Structuring the GLL parsing algorithm for performance", 2016
+     
+     * https://dl.acm.org/citation.cfm?id=3276618 "GLL parsing with flexible combinators", 2018
 
  * [rust-analyzer/rowan](https://github.com/rust-analyzer/rowan)
    
    "Rowan is a library for lossless syntax trees, inspired in part by Swift's libsyntax."
+   
