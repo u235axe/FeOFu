@@ -26,6 +26,8 @@ Main point: the parser / compiler must be designed with IDE support in mind, tha
      
      * http://hackage.haskell.org/package/gll (Haskell library)
      
+     * https://github.com/lykenware/gll (Rust library - WIP at time of this writing)
+     
      * http://www.cs.rhul.ac.uk/research/languages/csle/GLLparsers.html
      
      * http://www.codecommit.com/blog/scala/unveiling-the-mysteries-of-gll-part-2
