@@ -37,6 +37,8 @@ Main point: the parser / compiler must be designed with IDE support in mind, tha
      * https://dl.acm.org/citation.cfm?id=2950603 "Structuring the GLL parsing algorithm for performance", 2016
      
      * https://dl.acm.org/citation.cfm?id=3276618 "GLL parsing with flexible combinators", 2018
+     
+     * [Twitter thread](https://twitter.com/glaebhoerl/status/1061592404514476032)
  
  * Monoidal parsing
  
