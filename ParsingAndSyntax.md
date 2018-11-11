@@ -37,6 +37,18 @@ Main point: the parser / compiler must be designed with IDE support in mind, tha
      * https://dl.acm.org/citation.cfm?id=2950603 "Structuring the GLL parsing algorithm for performance", 2016
      
      * https://dl.acm.org/citation.cfm?id=3276618 "GLL parsing with flexible combinators", 2018
+ 
+ * Monoidal parsing
+ 
+   Offers benefits in terms of parallelism and incrementality. Probably suitable for an IDE?
+   
+     * http://comonad.com/reader/2009/iteratees-parsec-and-monoid/
+     
+     * https://www.reddit.com/r/haskell/comments/75as61/monoidal_parsing_edward_kmett_scala_world/
+     
+     * https://www.youtube.com/watch?v=090hIEiUoE0
+     
+     * http://hackage.haskell.org/package/incremental-parser (not clear if this is the same idea?)
 
  * [rust-analyzer/rowan](https://github.com/rust-analyzer/rowan)
    
