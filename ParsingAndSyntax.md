@@ -61,3 +61,5 @@ Main point: the parser / compiler must be designed with IDE support in mind, tha
    Read this if you want to understand the challenges and hard problems in parsing, the history of it all, the various approaches and their relationships to each other. (I have only skimmed it so far.)
    
    Doesn't mention GLL though?
+   
+ * [Taxonomy](https://internals.rust-lang.org/t/proposal-grammar-working-group/8442/46) of crazy in-between-CFG-and-context-sensitive stuff
