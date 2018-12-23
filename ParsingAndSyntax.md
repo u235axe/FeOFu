@@ -56,6 +56,10 @@ Main point: the parser / compiler must be designed with IDE support in mind, tha
    
    "Rowan is a library for lossless syntax trees, inspired in part by Swift's libsyntax."
    
+ * [Concise bullet-point overview of various algorithms](https://w3.cs.jmu.edu/lam2mo/cs630_2015_01/files/09-parsing3.txt) (by [Mike Lam](https://w3.cs.jmu.edu/lam2mo/))
+ 
+   Other notes-files in that directory also look interesting.
+   
  * [Parsing: A Timeline](https://jeffreykegler.github.io/personal/timeline_v3)
  
    Read this if you want to understand the challenges and hard problems in parsing, the history of it all, the various approaches and their relationships to each other. (I have only skimmed it so far.)
