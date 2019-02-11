@@ -1,3 +1,5 @@
+[![Join the chat at https://gitter.im/Compiler-Seminar/community](https://badges.gitter.im/Compiler-Seminar/community.svg)](https://gitter.im/Compiler-Seminar/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 # FeOFu
 Features of the Future
 
