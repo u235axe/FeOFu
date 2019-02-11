@@ -12,41 +12,27 @@ In this repository we'd like to collect ideas that would lead to better compiler
 
 - *18 February 2019*
 
-  Presenter: Gábor Horváth
-
-  Topic: Dataflow analysis
-
-  Recommended reading:
-
-
+  *Presenter:* Gábor Horváth  
+  *Topic:* Dataflow analysis  
+  *Recommended reading:*
 
 - *25 February 2019*
 
-  Presenter: Dániel Berényi
-
-  Topic: LambdaGen and Structured Recursion Schemes
-
-  Recommended reading:
-
-
+  *Presenter:* Dániel Berényi  
+  *Topic:* LambdaGen and Structured Recursion Schemes  
+  *Recommended reading:*
 
 - *04 March 2019*
 
-  Presenter:
-
-  Topic:
-
-  Recommended reading:
-
-
+  *Presenter:*  
+  *Topic:*  
+  *Recommended reading:*  
 
 - *11 March 2019*
 
-  Presenter: Csaba Hruska
-
-  Topic: GRIN and Heap Points To Analysis
-
-  Recommended reading:
+  *Presenter:* Csaba Hruska  
+  *Topic:* GRIN and Heap Points To Analysis  
+  *Recommended reading:*  
 
 
 
