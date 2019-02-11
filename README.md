@@ -10,28 +10,24 @@ In this repository we'd like to collect ideas that would lead to better compiler
 ### Schedule of topics this semester:
 
 
-- *18 February 2019*
+- *18 February 2019*, **Dataflow analysis**
 
   *Presenter:* Gábor Horváth  
-  *Topic:* Dataflow analysis  
   *Recommended reading:*
 
-- *25 February 2019*
+- *25 February 2019*, **LambdaGen and Structured Recursion Schemes**
 
   *Presenter:* Dániel Berényi  
-  *Topic:* LambdaGen and Structured Recursion Schemes  
   *Recommended reading:*
 
-- *04 March 2019*
+- *04 March 2019*, TBD
 
   *Presenter:*  
-  *Topic:*  
   *Recommended reading:*  
 
-- *11 March 2019*
+- *11 March 2019*, **GRIN and Heap Points To Analysis**
 
   *Presenter:* Csaba Hruska  
-  *Topic:* GRIN and Heap Points To Analysis  
   *Recommended reading:*  
 
 
