@@ -7,40 +7,44 @@ We also have a regular meeting on these topic every Monday 15:00-17:00 at ELTE.
 
 Schedule of topics this semester:
 
+
 * 18 February 2019
 
-Presenter: Gábor Horváth
+  Presenter: Gábor Horváth
 
-Topic: Dataflow analysis
+  Topic: Dataflow analysis
 
-Recommended reading:
+  Recommended reading:
+
 
 
 * 25 February 2019
 
-Presenter: Dániel Berényi
+  Presenter: Dániel Berényi
 
-Topic: LambdaGen and Structured Recursion Schemes
+  Topic: LambdaGen and Structured Recursion Schemes
 
-Recommended reading:
+  Recommended reading:
+
 
 
 * 04 March 2019
 
-Presenter:
+  Presenter:
 
-Topic:
+  Topic:
 
-Recommended reading:
+  Recommended reading:
+
 
 
 * 11 March 2019
 
-Presenter: Csaba Hruska
+  Presenter: Csaba Hruska
 
-Topic: GRIN
+  Topic: GRIN
 
-Recommended reading:
+  Recommended reading:
 
 
 
