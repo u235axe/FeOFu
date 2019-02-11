@@ -8,7 +8,7 @@ In this repository we'd like to collect ideas that would lead to better compiler
 ### Schedule of topics this semester:
 
 
-* 18 February 2019
+- *18 February 2019*
 
   Presenter: Gábor Horváth
 
@@ -18,7 +18,7 @@ In this repository we'd like to collect ideas that would lead to better compiler
 
 
 
-* 25 February 2019
+- *25 February 2019*
 
   Presenter: Dániel Berényi
 
@@ -28,7 +28,7 @@ In this repository we'd like to collect ideas that would lead to better compiler
 
 
 
-* 04 March 2019
+- *04 March 2019*
 
   Presenter:
 
@@ -38,7 +38,7 @@ In this repository we'd like to collect ideas that would lead to better compiler
 
 
 
-* 11 March 2019
+- *11 March 2019*
 
   Presenter: Csaba Hruska
 
