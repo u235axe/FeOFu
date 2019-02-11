@@ -1,16 +1,31 @@
 # FeOFu
 Features of the Future
 
-In this repository we'd like to collect ideas that would lead to better programming languages, better APIs and better performance software solutions in the future.
+In this repository we'd like to collect ideas that would lead to better compilers for existing languages, better future programming languages, better APIs and better performance software solutions in the future.
 
-First, we'd like to list the following:
+We also have a regular meeting on these topic every Monday 15:00-17:00 at ELTE.
 
-1. Problems and limitations of existing programming languages that cause trouble in one or more setting either in developer experience, performance or other aspects.
+Schedule of topics this semester:
 
-2. Similar collection for APIs and/or libraries, specifically in the context of GPU and / or graphics APIs, like OpenGL, OpenCL, Vulkan, CUDA, SYCL, DirectX, but non limited to these.
+* 18 February 2019
+Presetner: Gábor Horváth
+Topic: Dataflow analysis
+Recommended reading:
 
-3. General guidelines / features / expectations related to a possibly novel programming language (possibly overlap with some elements from point 1.)
+* 25 February 2019
+Presetner: Dániel Berényi
+Topic: LambdaGen and Structured Recursion Schemes
+Recommended reading:
 
-4. Personal ideas or conclusions of specific experiments (real or thought) with languages or APIs.
+* 04 March 2019
+Presetner:
+Topic:
+Recommended reading:
 
-Please explain any contributed thoughts in full sentences with examples if possible.
+* 11 March 2019
+Presetner: Csaba Hruska
+Topic: GRIN
+Recommended reading:
+
+
+
