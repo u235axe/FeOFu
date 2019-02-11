@@ -44,7 +44,7 @@ In this repository we'd like to collect ideas that would lead to better compiler
 
   Presenter: Csaba Hruska
 
-  Topic: GRIN
+  Topic: GRIN and Heap Points To Analysis
 
   Recommended reading:
 
