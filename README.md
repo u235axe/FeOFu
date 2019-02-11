@@ -1,6 +1,6 @@
 [![Join the chat at https://gitter.im/Compiler-Seminar/community](https://badges.gitter.im/Compiler-Seminar/community.svg)](https://gitter.im/Compiler-Seminar/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-# FeOFu
+# FeOFu - Compiler Seminar
 Features of the Future
 
 In this repository we'd like to collect ideas that would lead to better compilers for existing languages, better future programming languages, better APIs and better performance software solutions in the future.
