@@ -13,7 +13,7 @@ In this repository we'd like to collect ideas that would lead to better compiler
 - *18 February 2019*, **Dataflow analysis**
 
   *Presenter:* Gábor Horváth  
-  *Recommended reading:*
+  *Recommended reading:* [Engineering a Compiler](https://www.amazon.com/Engineering-Compiler-Keith-Cooper/dp/012088478X) Chapter 9.2
 
 - *25 February 2019*, **LambdaGen and Structured Recursion Schemes**
 
