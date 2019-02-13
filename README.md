@@ -7,6 +7,8 @@ In this repository we'd like to collect ideas that would lead to better compiler
 
 **We also have a regular meeting on these topic every Monday 15:00-17:00 at ELTE.**
 
+**Join the chat at** https://gitter.im/Compiler-Seminar/community
+
 ### Schedule of topics this semester:
 
 
