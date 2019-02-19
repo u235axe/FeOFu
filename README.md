@@ -20,7 +20,7 @@ Join the chat at https://gitter.im/Compiler-Seminar/community
 - *25 February 2019*, **LambdaGen and Structured Recursion Schemes**
 
   *Presenter:* Dániel Berényi  
-  *Recommended reading:*
+  *Recommended reading:* [Eric Niebler: F-algebras and C++](http://ericniebler.com/2013/07/16/f-algebras-and-c/)
 
 - *04 March 2019*, TBD
 
