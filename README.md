@@ -22,9 +22,9 @@ Join the chat at https://gitter.im/Compiler-Seminar/community
   *Presenter:* Dániel Berényi  
   *Recommended reading:* [Eric Niebler: F-algebras and C++](http://ericniebler.com/2013/07/16/f-algebras-and-c/)
 
-- *04 March 2019*, TBD
+- *04 March 2019*, **Using SMT solvers in Compilers**
 
-  *Presenter:*  
+  *Presenter:* Réka Kovács
   *Recommended reading:*  
 
 - *11 March 2019*, **GRIN and Heap Points To Analysis**
