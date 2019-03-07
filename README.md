@@ -30,7 +30,7 @@ Join the chat at https://gitter.im/Compiler-Seminar/community
 - *11 March 2019*, **GRIN and Heap Points To Analysis**
 
   *Presenter:* Csaba Hruska  
-  *Recommended reading:*  
+  *Recommended reading:*  <a href="http://nbviewer.jupyter.org/github/grin-tech/grin/blob/master/papers/The GRIN Project.pdf">The GRIN Project</a>
 
 
 
