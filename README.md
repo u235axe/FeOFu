@@ -25,7 +25,7 @@ Join the chat at https://gitter.im/Compiler-Seminar/community
 - *04 March 2019*, **Using SMT solvers in Compilers**
 
   *Presenter:* Réka Kovács  
-  *Recommended reading:*  
+  *Recommended reading:* [link](https://docs.google.com/document/d/1E1ebMVt--vRLUhlbhjoAtceZn7PbHW31yCv_g3Cvovs)
 
 - *11 March 2019*, **GRIN and Heap Points To Analysis**
 
