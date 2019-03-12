@@ -24,3 +24,5 @@ SIL   = Swift Intermediate Language
 MIR   = Middle Intermediate Representation (Rust)
 
 SoN   = Sea of Nodes ("A Simple Graph-Based Intermediate Representation" Click)
+
+TODO maybe add: [wasm, microwasm](http://troubles.md/posts/microwasm/), [Cranelift](https://cranelift.readthedocs.io/en/latest/compare-llvm.html)
