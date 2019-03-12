@@ -67,3 +67,5 @@ Main point: the parser / compiler must be designed with IDE support in mind, tha
    Doesn't mention GLL though?
    
  * [Taxonomy](https://internals.rust-lang.org/t/proposal-grammar-working-group/8442/46) of crazy in-between-CFG-and-context-sensitive stuff
+ 
+ * [Dreaming of a Parser Generator for Language Design](https://blog.adamant-lang.org/2019/dreaming-of-a-parser-generator/)
