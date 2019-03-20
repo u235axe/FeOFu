@@ -41,3 +41,8 @@ Join the chat at https://gitter.im/Compiler-Seminar/community
     - [Fast and Accurate Flow-Insensitive Points-To Analysis](http://www.cs.utexas.edu/users/pingali/CS380C/2007fa/papers/popl97.pdf) '97
     - [The ant and the grasshopper:fast and accurate pointer analysis for millions of lines of code](https://www.cs.utexas.edu/~lin/papers/pldi07.pdf) '07
     - [A GPU Implementation of Inclusion-based Points-to Analysis](https://userweb.cs.txstate.edu/~mb92/papers/ppopp12.pdf) '12
+
+- *25 March 2019*, **TODO**, **TODO**
+
+  *Presenter:* Gábor Márton  
+  *Presenter:* Gábor Horváth
