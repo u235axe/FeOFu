@@ -46,3 +46,7 @@ Join the chat at https://gitter.im/Compiler-Seminar/community
 
   *Presenter:* Gábor Márton  
   *Presenter:* Gábor Horváth
+
+- *1 April 2019*, SYCL
+
+  *Presenter:* Máté Ferenc Nagy-Egri
