@@ -45,7 +45,7 @@ Join the chat at https://gitter.im/Compiler-Seminar/community
 - *25 March 2019*, **TODO**, **TODO**
 
   *Presenter:* Gábor Márton  
-  *Presenter:* Gábor Horváth
+  *Presenter:* Gábor Horváth  
   *Recommended reading:*
     - [Chains of Recurrences](http://gsd.web.elte.hu/lectures/bolyai/2018/ChainofRecurrences/10.1.1.43.8188.pdf)
   
