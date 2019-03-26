@@ -46,6 +46,9 @@ Join the chat at https://gitter.im/Compiler-Seminar/community
 
   *Presenter:* Gábor Márton  
   *Presenter:* Gábor Horváth
+  *Recommended reading:*
+    - [Chains of Recurrences](http://gsd.web.elte.hu/lectures/bolyai/2018/ChainofRecurrences/10.1.1.43.8188.pdf)
+  
 
 - *1 April 2019*, SYCL
 
