@@ -42,7 +42,7 @@ Join the chat at https://gitter.im/Compiler-Seminar/community
     - [The ant and the grasshopper:fast and accurate pointer analysis for millions of lines of code](https://www.cs.utexas.edu/~lin/papers/pldi07.pdf) '07
     - [A GPU Implementation of Inclusion-based Points-to Analysis](https://userweb.cs.txstate.edu/~mb92/papers/ppopp12.pdf) '12
 
-- *25 March 2019*, **TODO**, **TODO**
+- *25 March 2019*, **Non-intrusive testing methods**, **Chains of Recurrences**
 
   *Presenter:* Gábor Márton  
   *Presenter:* Gábor Horváth  
