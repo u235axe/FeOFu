@@ -9,6 +9,9 @@ In this repository we'd like to collect ideas that would lead to better compiler
 
 Join the chat at https://gitter.im/Compiler-Seminar/community
 
+Mailing list: https://groups.google.com/d/forum/compiler-seminar-budapest
+
+
 ### Schedule of topics this semester:
 
 
