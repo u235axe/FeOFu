@@ -56,3 +56,7 @@ Mailing list: https://groups.google.com/d/forum/compiler-seminar-budapest
 - *1 April 2019*, SYCL
 
   *Presenter:* Máté Ferenc Nagy-Egri
+
+- *8 April 2019*, SYCL (cont.)
+
+  *Presenter:* Máté Ferenc Nagy-Egri
