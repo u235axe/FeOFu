@@ -60,3 +60,11 @@ Mailing list: https://groups.google.com/d/forum/compiler-seminar-budapest
 - *8 April 2019*, SYCL (cont.)
 
   *Presenter:* Máté Ferenc Nagy-Egri
+
+- *29 April 2019*, **Efficient Program Analysis with Datalog**
+
+  *Presenter:* Csaba Hruska  
+  *Recommended reading:*
+    - [Introduction to Datalog](http://pages.cs.wisc.edu/~paris/cs784-s17/lectures/lecture7.pdf)
+    - [Pointer Analysis tutorial with Datalog](https://yanniss.github.io/points-to-tutorial15.pdf)
+    - [Soufflé (docs)](https://souffle-lang.github.io/docs/home)
