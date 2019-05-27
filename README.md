@@ -68,3 +68,14 @@ Mailing list: https://groups.google.com/d/forum/compiler-seminar-budapest
     - [Introduction to Datalog](http://pages.cs.wisc.edu/~paris/cs784-s17/lectures/lecture7.pdf)
     - [Pointer Analysis tutorial with Datalog](https://yanniss.github.io/points-to-tutorial15.pdf)
     - [Soufflé (docs)](https://souffle-lang.github.io/docs/home)
+    
+ 
+- *20 May 2019*, **MLIR**
+
+  *Presenter:* Gabor Horvath  
+  *Links:*
+    - [EuroLLVM MLIR Keynote](https://llvm.org/devmtg/2019-04/talks.html#Keynote_1)
+    - [EuroLLVM MLIR Tutorial](https://llvm.org/devmtg/2019-04/talks.html#Tutorial_1)
+    - [Github](https://github.com/tensorflow/mlir)
+    
+ 
