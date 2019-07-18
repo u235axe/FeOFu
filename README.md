@@ -56,10 +56,20 @@ Mailing list: https://groups.google.com/d/forum/compiler-seminar-budapest
 - *1 April 2019*, SYCL
 
   *Presenter:* Máté Ferenc Nagy-Egri
+  *Recommended reading:*
+    - [OpenCL overview](https://www.khronos.org/opencl/)
+    - Minimal OpenCL app: [C](https://github.com/Wigner-GPU-Lab/Teaching/tree/master/GPGPU1/OpenCL/OpenCL-C-API) and [C++](https://github.com/Wigner-GPU-Lab/Teaching/tree/master/GPGPU1/OpenCL/OpenCL-C%2B%2B-API)
+    - [OpenCL-GL interop sample](https://github.com/Wigner-GPU-Lab/Teaching/tree/master/GPGPU1/OpenCL-GL/Qt/NBody)
 
 - *8 April 2019*, SYCL (cont.)
 
   *Presenter:* Máté Ferenc Nagy-Egri
+  *Recommended reading:*
+    - [SYCL overview](https://www.khronos.org/sycl/)
+    - [SYCL SAXPY sample](https://github.com/MathiasMagnus/Test-Applications/tree/master/SYCL-SAXPY)
+    - [SYCL-CL-GL interop sample](https://github.com/Wigner-GPU-Lab/Teaching/tree/master/GPGPU1/SYCL-GL/Qt/NBody)
+    - [ComputeCpp](https://www.codeplay.com/products/computesuite/computecpp)
+    - [Intel SYCL implementation](https://github.com/intel/llvm/)
 
 - *29 April 2019*, **Efficient Program Analysis with Datalog**
 
