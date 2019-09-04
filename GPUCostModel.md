@@ -30,3 +30,6 @@ https://docs.nvidia.com/cuda/volta-tuning-guide/index.html#volta-tuning
 
 Similar for AMD, see especially section 2.4 for bandwidth and 2.6 on latency hiding:
 https://rocm-documentation.readthedocs.io/en/latest/Programming_Guides/Opencl-optimization.html
+
+A Code Generator for High-Performance Tensor Contractions on GPUs
+http://web.cse.ohio-state.edu/presto/pubs/cgo19.pdf
