@@ -14,10 +14,12 @@ Mailing list: https://groups.google.com/d/forum/compiler-seminar-budapest
 
 ### Schedule of talks of the 2020 spring semester:
 
-- *15 April 2019*, **Soufflé**
+- *15 April 2019*, **AST modeling in Soufflé Datalog**
 
-  *Presenter:* Csaba Hruska
+  *Presenter:* Csaba Hruska  
   *Recommended reading:*
+  - https://souffle-lang.github.io/tutorial
+  - https://souffle-lang.github.io/docs.html
 
 ### Archive of talks of the 2019 spring semester:
 
