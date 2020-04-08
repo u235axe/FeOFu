@@ -19,6 +19,8 @@ Mailing list: https://groups.google.com/d/forum/compiler-seminar-budapest
   *Presenter:* Csaba Hruska  
   *Recommended reading:* https://souffle-lang.github.io/tutorial
 
+<hr>
+
 ### Archive of talks of the 2019 spring semester:
 
 
