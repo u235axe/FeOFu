@@ -17,9 +17,7 @@ Mailing list: https://groups.google.com/d/forum/compiler-seminar-budapest
 - *15 April 2019*, **AST modeling in Soufflé Datalog**
 
   *Presenter:* Csaba Hruska  
-  *Recommended reading:*
-  - https://souffle-lang.github.io/tutorial
-  - https://souffle-lang.github.io/docs.html
+  *Recommended reading:* https://souffle-lang.github.io/tutorial
 
 ### Archive of talks of the 2019 spring semester:
 
