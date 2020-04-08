@@ -12,7 +12,14 @@ Join the chat at https://gitter.im/Compiler-Seminar/community
 Mailing list: https://groups.google.com/d/forum/compiler-seminar-budapest
 
 
-### Schedule of topics this semester:
+### Schedule of talks of the 2020 spring semester:
+
+- *15 April 2019*, **Soufflé**
+
+  *Presenter:* Csaba Hruska
+  *Recommended reading:*
+
+### Archive of talks of the 2019 spring semester:
 
 
 - *18 February 2019*, **Dataflow analysis**
