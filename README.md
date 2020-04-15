@@ -14,10 +14,11 @@ Mailing list: https://groups.google.com/d/forum/compiler-seminar-budapest
 
 ### Schedule of talks of the 2020 spring semester:
 
-- *15 April 2019*, **AST modeling in Soufflé Datalog**
 
-  *Presenter:* Csaba Hruska  
-  *Recommended reading:* https://souffle-lang.github.io/tutorial
+- *22 April 2019*, **Lifetime analysis for C++**
+
+  *Presenter:* Gábor Horváth  
+  *Recommended reading:* soon
 
 <hr>
 
@@ -96,5 +97,11 @@ Mailing list: https://groups.google.com/d/forum/compiler-seminar-budapest
     - [EuroLLVM MLIR Keynote](https://llvm.org/devmtg/2019-04/talks.html#Keynote_1)
     - [EuroLLVM MLIR Tutorial](https://llvm.org/devmtg/2019-04/talks.html#Tutorial_1)
     - [Github](https://github.com/tensorflow/mlir)
+    
+
+- *15 April 2019*, **AST modeling in Soufflé Datalog**
+
+  *Presenter:* Csaba Hruska  
+  *Recommended reading:* https://souffle-lang.github.io/tutorial
     
  
