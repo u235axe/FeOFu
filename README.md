@@ -22,7 +22,8 @@ Mailing list: https://groups.google.com/d/forum/compiler-seminar-budapest
 - *22 April 2019*, **Lifetime analysis for C++**
 
   *Presenter:* Gábor Horváth  
-  *Recommended reading:* soon
+  *Recommended reading:* Chapter 3 and Appendix A of https://www.dropbox.com/s/4iog86ljrhyehrp/thesis.pdf?dl=0 
+  *Note:* The reading above is a draft, any feedback is welcome.
     
 <hr>
 
