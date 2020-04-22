@@ -19,11 +19,15 @@ Mailing list: https://groups.google.com/d/forum/compiler-seminar-budapest
   *Presenter:* Csaba Hruska  
   *Recommended reading:* https://souffle-lang.github.io/tutorial
 
-- *22 April 2019*, **Lifetime analysis for C++**
+- *22 April 2020*, **Lifetime analysis for C++**
 
   *Presenter:* Gábor Horváth  
   *Recommended reading:* Chapter 3 and Appendix A of https://www.dropbox.com/s/4iog86ljrhyehrp/thesis.pdf?dl=0 
   *Note:* The reading above is a draft, any feedback is welcome.
+  
+- *29 April 2020*, **Introduction to type inference (and program inference)**
+
+  *Presenter:* András Kovács
     
 <hr>
 
