@@ -33,7 +33,7 @@ Mailing list: https://groups.google.com/d/forum/compiler-seminar-budapest
 
   *Presenter:* András Kovács
   
- - *13 May 2020*, **Symbolic Execution**
+- *13 May 2020*, **Symbolic Execution**
 
   *Presenter:* Gábor Horváth  
   *Recommended reading:*
