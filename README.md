@@ -32,6 +32,13 @@ Mailing list: https://groups.google.com/d/forum/compiler-seminar-budapest
 - *6 May 2020*, **(Glued) evaluation and normalization for lambda calculus**
 
   *Presenter:* András Kovács
+  
+ - *13 May 2020*, **Symbolic Execution**
+
+  *Presenter:* Gábor Horváth  
+  *Recommended reading:* 
+      - [A Survey of Symbolic Execution Techniques](https://arxiv.org/pdf/1610.00502.pdf)
+      - [Incorrectness Logic](https://research.fb.com/publications/incorrectness-logic/)
     
 <hr>
 
