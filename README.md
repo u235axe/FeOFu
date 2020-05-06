@@ -28,6 +28,10 @@ Mailing list: https://groups.google.com/d/forum/compiler-seminar-budapest
 - *29 April 2020*, **Introduction to type inference (and program inference)**
 
   *Presenter:* András Kovács
+  
+- *6 May 2020*, **(Glued) evaluation and normalization for lambda calculus**
+
+  *Presenter:* András Kovács
     
 <hr>
 
