@@ -39,7 +39,14 @@ Mailing list: https://groups.google.com/d/forum/compiler-seminar-budapest
   *Recommended reading:*
    - [A Survey of Symbolic Execution Techniques](https://arxiv.org/pdf/1610.00502.pdf)
    - [Incorrectness Logic](https://research.fb.com/publications/incorrectness-logic/)
-    
+
+- *20 May 2020*, **Symbolic Execution - taint analysis, constraint manager in Clang**
+
+  *Presenter:* Balázs Benics  
+  *Recommended reading:*
+  - [Inspection the use of static code analysis to automatically detect security issues](https://edit.elte.hu/xmlui/bitstream/handle/10831/46472/szakdolgozat.pdf)
+  - [An user configurable clang static analyzer taint checker](https://www.researchgate.net/publication/312938554_An_user_configurable_clang_static_analyzer_taint_checker)
+
 <hr>
 
 ### 2019 spring semester:
