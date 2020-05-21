@@ -47,6 +47,13 @@ Mailing list: https://groups.google.com/d/forum/compiler-seminar-budapest
   - [Inspection the use of static code analysis to automatically detect security issues](https://edit.elte.hu/xmlui/bitstream/handle/10831/46472/szakdolgozat.pdf)
   - [An user configurable clang static analyzer taint checker](https://www.researchgate.net/publication/312938554_An_user_configurable_clang_static_analyzer_taint_checker)
 
+- *27 May 2020*, **Code devirtualization, packers**
+
+  *Presenter:* Dávid Török  
+  *Recommended reading:*
+   - [Unpacking Virtualization Obfuscators](https://www.usenix.org/legacy/event/woot09/tech/full_papers/rolles.pdf)
+   - [Syntia: Synthesizing the Semantics  of Obfuscated Code](https://www.usenix.org/system/files/conference/usenixsecurity17/sec17-blazytko.pdf)
+
 <hr>
 
 ### 2019 spring semester:
