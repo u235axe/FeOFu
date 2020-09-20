@@ -70,6 +70,8 @@ Main point: the parser / compiler must be designed with IDE support in mind, tha
  
  * [Dreaming of a Parser Generator for Language Design](https://blog.adamant-lang.org/2019/dreaming-of-a-parser-generator/)
  
+ * [Writing a recursive ascent parser by hand](https://www.abubalay.com/blog/2018/04/08/recursive-ascent) (recursive ascent : LR :: recursive descent : LL)
+ 
 -----
  
  * [Which Parsing Approach?](https://tratt.net/laurie/blog/entries/which_parsing_approach.html) and [Challenging LR Parsing](https://rust-analyzer.github.io/blog/2020/09/16/challeging-LR-parsing.html)
