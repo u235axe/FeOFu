@@ -69,3 +69,27 @@ Main point: the parser / compiler must be designed with IDE support in mind, tha
  * [Taxonomy](https://internals.rust-lang.org/t/proposal-grammar-working-group/8442/46) of crazy in-between-CFG-and-context-sensitive stuff
  
  * [Dreaming of a Parser Generator for Language Design](https://blog.adamant-lang.org/2019/dreaming-of-a-parser-generator/)
+ 
+-----
+ 
+ * [Which Parsing Approach?](https://tratt.net/laurie/blog/entries/which_parsing_approach.html) and [Challenging LR Parsing](https://rust-analyzer.github.io/blog/2020/09/16/challeging-LR-parsing.html)
+ 
+   TL;DR:
+   
+    * LR is in some sense "the best", because it is more expressive than LL (supports left-recursion) and ambiguity errors in the grammar can be statically checked.
+    
+    * Earley, GLL, and GLR only detect grammar ambiguities *dynamically* (while parsing), which is not what you actually want, especially for a programming language.
+
+    * The state of the art for LR parser generator technology is unfortunately not adequate for all use cases (*notably including compilers and IDEs*) with respect to error reporting, recovery and resilience, and maybe performance.
+    
+    * Hand-written recursive descent parsing is error-prone (what the parser parses may or may not correspond to an actual unambiguous grammar) and more verbose, but offers great flexibility with respect to handling of errors, and the best achievable performance. In practice this is the only technique usually considered suitable for "industrial strength" compilers and IDEs. For greater confidence in the implementation, it can be validated against an explicit LL grammar written down separately.
+    
+    * PEGs are also just recursive descent in disguise (because disjunction is left-biased instead of symmetric), and so are most parser combinator libraries.
+    
+ * [Simple but Powerful Pratt Parsing](https://matklad.github.io/2020/04/13/simple-but-powerful-pratt-parsing.html)
+ 
+    Simple extensions to recursive descent parsing enable it to relatively straightforwardly handle operator precedence and associativity as well as left recursion. This is called "Pratt parsing", after its original inventor.
+    
+ * [From Pratt to Dijkstra](https://matklad.github.io/2020/04/15/from-pratt-to-dijkstra.html); [reddit discussion involving JMBourguet](https://old.reddit.com/r/oilshell/comments/5l70p7/pratt_parsing_and_precedence_climbing_are_the/dfqolgw/); [another comment by JMBourguet](https://old.reddit.com/r/rust/comments/g0eusf/blog_post_simple_but_powerful_pratt_parsing/fnaz4g6/?context=1)
+ 
+   "Pratt parsing", "precedence climbing", and Dijkstra's "shunting-yard algorithm" are all in some sense the same basic idea. (Pratt parsing is a generalization of precedence climbing, and shunting-yard manually manipulates a stack instead of relying on the call stack via recursion like Pratt does.) JMBourguet also claims that shunting-yard is actually more general than Pratt, analogous to LR vs. LL.
