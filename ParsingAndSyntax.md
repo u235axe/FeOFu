@@ -72,6 +72,10 @@ Main point: the parser / compiler must be designed with IDE support in mind, tha
  
  * [Writing a recursive ascent parser by hand](https://www.abubalay.com/blog/2018/04/08/recursive-ascent) (recursive ascent : LR :: recursive descent : LL)
  
+ * [Modular parser combinators](https://ptival.github.io/2017/02/25/modular-parser-combinators/)
+   
+   This seems like it ought to be related to Pratt parsing (below) because it solves the same problems, but it's not immediately obvious what the relationship is.
+ 
 -----
  
  * [Which Parsing Approach?](https://tratt.net/laurie/blog/entries/which_parsing_approach.html) and [Challenging LR Parsing](https://rust-analyzer.github.io/blog/2020/09/16/challeging-LR-parsing.html)
