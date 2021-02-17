@@ -103,3 +103,5 @@ Main point: the parser / compiler must be designed with IDE support in mind, tha
  * [Modular parser combinators](https://ptival.github.io/2017/02/25/modular-parser-combinators/)
  
    This is also an abstracted implementation of Pratt parsing, even though it doesn't say so.
+   
+ * https://github.com/bourguet/operator_precedence_parsing Python code for and comparisons of different flavors of Shunting Yard, Pratt, and the "operator precedence" algorithm. Apparently there are differences.
