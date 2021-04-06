@@ -72,6 +72,15 @@ Main point: the parser / compiler must be designed with IDE support in mind, tha
  
  * [Writing a recursive ascent parser by hand](https://www.abubalay.com/blog/2018/04/08/recursive-ascent) (recursive ascent : LR :: recursive descent : LL)
 
+ * [Owl: A parser generator for visibly pushdown languages](https://github.com/ianh/owl) (README has details)
+   
+   > [I like them because:](https://twitter.com/arntzenius/status/1379213972222705664)
+   > 1. Clear semantics (unlike PEGs).
+   > 2. Good error messages without jumping through hoops (unlike LALR).
+   > 3. Guaranteed linear time (unlike Earley, GLR).
+   > 4. No weird limitations on left/right-recursion.
+   > 5. Usually expressive enough (unlike LL).
+   
 -----
  
  * [Which Parsing Approach?](https://tratt.net/laurie/blog/entries/which_parsing_approach.html) and [Challenging LR Parsing](https://rust-analyzer.github.io/blog/2020/09/16/challeging-LR-parsing.html)
